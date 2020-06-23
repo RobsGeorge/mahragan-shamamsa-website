@@ -2,6 +2,10 @@
 // Start the session
 require_once 'config.php';
 session_start();
+if(empty($_SESSION['reg-player-code']))
+{
+        header('Location: register.php');
+}
 ?>
 <!doctype html>
 <html lang="ar" dir="rtl">
@@ -52,7 +56,7 @@ $userPhone = $_SESSION['reg-player-phone-number']
 ?>
 
 
-    <div style="min-height: 100%; min-height: 100vh; display: flex; align-items: center;">
+    <div class="row" style="min-height: 100%; min-height: 100vh; display: flex; align-items: center;">
         <div class="container align-items-center align-items-sm-center">
             <h1 class="arbaic-text-small-heading" style="color: #005cbf; font-size: large;"  >My Account</h1>
             <br>
@@ -66,7 +70,7 @@ $userPhone = $_SESSION['reg-player-phone-number']
             <br>
         </div>
     </div>
-</div>
+
 
 
 

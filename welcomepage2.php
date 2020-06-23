@@ -44,7 +44,7 @@
 
     <div style="min-height: 100%; min-height: 100vh; display: flex; align-items: center;">
         <div class="container align-items-center">
-            <h1 class="arbaic-text-title2" dir="rtl">أهلاً بك يا <strong><?php echo $_POST['player-code']; ?></strong></h1>
+            <h1 class="arbaic-text-title2" dir="rtl">أهلاً بك يا <strong><?php session_start();echo $_POST['player-code']; ?></strong></h1>
         </div>
     </div>
 </div>

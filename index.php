@@ -1,7 +1,3 @@
-
-<?php
-        session_start();
-?>
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -45,12 +41,16 @@
                                 <li class="nav-item"> <a class="nav-link" href="#mokmek">MOKMEK</a> </li>
                                 <li class="nav-item arbaic-text-small-nav"> <a class="nav-link" href="#rank">الترتيب</a> </li>
                                 <li class="nav-item"> <a class="nav-link" href="#faq">FAQs</a> </li>
-                                        <?php
+                                        <?php session_start();
+                                        if(!(empty($_SESSION['valid_login']))){
                                         if(!($_SESSION['valid_login'])){
                                             echo '<a href="login.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">التسجيل/الدخول</a></li>';
                                         }
                                         else{
                                             echo '<a href="userpage.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3 arbaic-text-small-nav">'. $_SESSION["reg-player-first-name"] .'</a></li>';
+                                        }}
+                                        else{
+                                            echo '<a href="login.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">التسجيل/الدخول</a></li>';
                                         }
                                         ?>
                             </ul>

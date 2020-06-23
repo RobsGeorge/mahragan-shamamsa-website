@@ -46,7 +46,7 @@ session_start();
                             <li class="nav-item arbaic-text-small-nav">
                                 <?php
                                 if(!($_SESSION['valid_login'])){
-                                    echo '<a href="login.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">التسجيل/الدخول</a></li>';
+                                    echo '<a href="register.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">التسجيل/الدخول</a></li>';
                                 }
                                 else{
                                     echo '<a href="userpage.php" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3 arbaic-text-small-nav">'. $_SESSION["reg-player-first-name"] .'</a></li>';

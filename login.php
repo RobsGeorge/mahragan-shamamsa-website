@@ -1,35 +1,30 @@
-<?php
-// Start the session
-session_start();
-?>
-
 <!doctype html>
-        <html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl">
 
-        <head>
-            <title>تسجيل الدخول - مهرجان ألحان 2020</title>
-            <link rel="shortcut icon" type="image/x-icon" href="images/BG.png" />
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, shrink-to-fit=yes ,initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
-            <meta name="description" content="Mobland - Mobile App Landing Page Template">
-            <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
+<head>
+    <title>تسجيل الدخول - مهرجان ألحان 2020</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/BG.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=yes ,initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
+    <meta name="description" content="Mobland - Mobile App Landing Page Template">
+    <meta name="keywords" content="HTML5, bootstrap, mobile, app, landing, ios, android, responsive">
 
-            <!-- Font -->
-            <link rel="dns-prefetch" href="//fonts.googleapis.com">
-            <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@800&display=swap" rel="stylesheet">
+    <!-- Font -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@800&display=swap" rel="stylesheet">
 
-            <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="css/bootstrap.min.css">
-            <!-- Themify Icons -->
-            <link rel="stylesheet" href="css/themify-icons.css">
-            <!-- Owl carousel -->
-            <link rel="stylesheet" href="css/owl.carousel.min.css">
-            <!-- Main css -->
-            <link href="css/style.css" rel="stylesheet">
-        </head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Main css -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
 <body>
 
@@ -51,159 +46,41 @@ session_start();
         <br>
         <br>
         <div class="align-items-center">
-            <h1 class="arbaic-text-title2"> <strong>انشاء حساب جديد</strong> </h1>
+            <h1 class="arbaic-text-title2"> <strong>تسجيل الدخول لحسابك</strong> </h1>
         </div>
     </div>
 </section>
-<?php
-// define variables and set to empty values
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-
-$name = $code = $phone_number =  $email = $password = $passwordVerification=  $firstname = "";
-$valid_name = $valid_code = $valid_phone_number  = $valid_email = $valid_password = $valid_password_verification = true;
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['submitbtn'])) {
-    $name = test_input($_POST["reg-player-name"]);
-    $code = test_input($_POST["reg-player-code"]);
-    $phone_number = test_input($_POST["reg-player-phone-number"]);
-    $email = test_input($_POST["reg-player-email"]);
-    $password = test_input($_POST["reg-player-password"]);
-    $passwordVerification = test_input($_POST["reg-player-confirm-password"]);
-}
-
-
-
-    $name = test_input($name);
-    $code = test_input($code);
-    $email = test_input($email);
-    $phone_number = test_input($phone_number);
-    $password = test_input($password);
-    $passwordVerification = test_input($passwordVerification);
-
-    $nameErr = "";
-    $codeErr = "";
-    $emailErr = "";
-    $phoneErr = "";
-    $passwordErr = "";
-    $passwordVerificationErr = "";
-
-
-
-
-
-
-if(strlen($code) < 2 or strlen($code)>5)
-{
-    $valid_code = false;
-    $codeErr = "من فضلك أدخل الكود الخاص بك في مدرسة الشمامسة بشكل صحيح";
-}
-
-elseif(substr($code,0,1) != '1' and substr($code,0,1)!= '2')
-{
-    $valid_code = false;
-    $codeErr = "من فضلك أدخل الكود الخاص بك في مدرسة الشمامسة بشكل صحيح";
-}
-else
-{
-    $valid_code = true;
-    $codeErr = "";
-}
-
-$firstname = substr($name, 0, stripos($name," "));
-
-$_SESSION["reg-player-first-name"] = $firstname;
-$_SESSION["reg-player-name"] = $name;
-$_SESSION["reg-player-code"] = $code;
-$_SESSION["reg-player-phone-number"] = $phone_number;
-$_SESSION["reg-player-email"] = $email;
-$_SESSION["reg-player-password"] = $password;
-$_SESSION["reg-player-confirm-password"] = $passwordVerification;
-
-
-
-
-$valid_login = false;
-
-if($valid_password and $valid_name and $valid_phone_number and $valid_email and $valid_password_verification and $valid_code and isset($_POST['submitbtn']))
-{
-    $valid_login = true;
-    sleep(2);
-    header('Location: welcomepage.php');
-}
-$_SESSION["valid_login"] = $valid_login;
-?>
 <section class="login general-pages d-flex flex-column justify-content-center">
+<form name="robsForm" action="welcomepage.php" method="post">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="general-card">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="subtitle-heading2"> انشاء حساب </h3>
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                            <form>
                                 <div class="form-group subtitle-heading2" dir="rtl">
-                                    <label dir="rtl" for="name" class="label-title"> الإسم  </label>
-                                    <?php if(!empty($nameErr))
-                                    echo "<h2 class='arbaic-text-small-nav'>" . $nameErr . "</h2>";?>
-                                    <input type="text" value="<?php if($valid_name){echo $_SESSION['reg-player-name'];} else {echo '';}?>" class="form-control" style="color:#2e3133;" id="name" name="reg-player-name"
-                                           aria-describedby="emailHelp" placeholder="أدخل الإ سم ثلاثي باللغة العربية" dir="rtl" required>
-                                </div>
-                                <div class="form-group subtitle-heading2" dir="rtl">
-                                    <label dir="rtl" lang="en" for="code" class="label-title">الكود</label>
-                                    <?php if(!empty($codeErr))
-                                        echo "<h2 class='arbaic-text-small-nav'>" . $codeErr . "</h2>";?>
-                                    <input type="number" value="<?php if($valid_code){echo $_SESSION['reg-player-code'];} else {echo '';}?>" class="form-control" style="color:#2e3133;" id="code" name="reg-player-code"
-                                           aria-describedby="emailHelp" placeholder="أدخل الكود الخاص بك في مدرسة الشمامسة" dir="rtl" required>
-                                </div>
-                                <div class="form-group subtitle-heading2" dir="rtl">
-                                    <label dir="rtl" for="phone" class="label-title">رقم الموبايل</label>
-                                    <?php if(!empty($phoneErr))
-                                        echo "<h2 class='arbaic-text-small-nav'>" . $phoneErr . "</h2>";?>
-                                    <input type="number" value="<?php if($valid_phone_number){echo $_SESSION['reg-player-phone-number'];} else {echo '';}?>" class="form-control" style="color:#2e3133;" id="phone" name="reg-player-phone-number"
-                                           name="reg-player-phone-number" placeholder="أدخل رقم الموبايل الخاص بك" dir="rtl" required>
+                                    <label dir="rtl" for="code" class="label-title">الكود</label>
+                                    <input type="text" class="form-control" style="color:#2e3133;" id="code" name="player-code"
+                                           aria-describedby="emailHelp" placeholder="أدخل الكود الخاص بك في مدرسة الشمامسة" dir="rtl">
                                 </div>
                                 <div class="form-group subtitle-heading2">
-                                    <label for="email" class="label-title"> عنوان البريد الكتروني </label>
-                                    <input type="email" value="<?php if($valid_email){echo $_SESSION['reg-player-email'];} else {echo '';}?>" class="form-control" style="color:#2e3133;" id="email" name="reg-player-email"
-                                           aria-describedby="emailHelp" placeholder="أدخل البريد الإلكتروني" dir="rtl" required>
-                                </div>
-                                <div class="form-group subtitle-heading2">
-                                    <label for="password" class="label-title">قم بإنشاء كلمة السر الخاصة بك</label>
-                                    <?php if(!empty($passwordErr))
-                                        echo "<h2 class='arbaic-text-small-nav'>" . $passwordErr . "</h2>";?>
-                                    <input type="password" class="form-control" style="color:#2e3133;" id="password" name="reg-player-password"
-                                           placeholder="أدخل كلمة السر التي ترغبها" dir="rtl" required>
-                                </div>
-                                <div class="form-group subtitle-heading2">
-                                    <label for="confirmPassword" class="label-title"> تأكيد كلمة السر </label>
-                                    <?php if(!empty($passwordVerificationErr))
-                                        echo "<h2 class='arbaic-text-small-nav'>" . $valid_password_verification . "</h2>";?>
-                                    <input type="password" class="form-control" style="color:#2e3133;" id="confirmPassword" name="reg-player-confirm-password"
-                                           placeholder="أعد كتابة كلمة السر التي أنشأتها" dir="rtl" required>
+                                    <label for="password" class="label-title">كلمة السر</label>
+                                    <input type="password" class="form-control" style="color:#2e3133;" id="password" name="player-password"
+                                           placeholder="أدخل كلمة الخاصة بك في المهرجان" dir="rtl">
                                 </div>
                                 <div class="row">
-                                <button type="submit" name="submitbtn" class="btn btn-primary label-title" style="margin: 20px"> حفظ </button>
-                                    <?php if(($valid_name)){
-                                        echo $nameErr;
-                                    }
-                                    ?>
+                                    <button type="submit" class="btn btn-primary label-title" style="margin: 20px"> الدخول </button>
                                 </div>
                             </form>
                             <br>
                             <div  dir="ltr">
-
-                                    <p class="message" style="margin-left: 12px"> لديك حساب بالفعل؟ </p>
-                                <a href="login2.html" type="submit" class="btn btn-primary2 label-title2"> تسجيل الدخول </a>
-
+                                <a href="#" class="label-title link"> نسيت كلمة السر؟ </a>
+                            </div>
+                            <br>
+                            <div  dir="ltr">
+                                <a href="register.php" class="arbaic-text-small-nav" style="font-size: 22px"> ليس لديك حساب؟ قم بإنشاء حساب جديد </a>
                             </div>
                         </div>
                     </div>
@@ -211,6 +88,7 @@ $_SESSION["valid_login"] = $valid_login;
             </div>
         </div>
     </div>
+    </form>
 </section>
 
 <div class="section bg-gradient">
